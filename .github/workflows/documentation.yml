@@ -1,4 +1,4 @@
-name: Storybook Documentation
+name: Publish Storybook
 
 on:
   release:
@@ -34,6 +34,6 @@ jobs:
         run: |
           git config --global user.email "actions@gihub.com"
           git config --global user.name "gh-actions"
-          cd website
           yarn install --frozen-lockfile
+          yarn build-storybook
           yarn deploy-storybook

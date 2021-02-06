@@ -19,7 +19,7 @@
     "ci": "yarn install && yarn prettier && cross-env CI=true yarn build",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "deploy-storybook": "yarn build-storybook && gh-pages -d storybook-static"
+    "deploy-storybook": "gh-pages -d storybook-static"
   },
   "dependencies": {
     "@fluentui/react": "^7.158.1",
