@@ -32,6 +32,7 @@ jobs:
           GIT_USER: git
           DEPLOYMENT_BRANCH: gh-pages
         run: |
+          git remote set-url origin git@github.com:flying-dice/fluentui-toolkit.git
           git config --global user.email "actions@gihub.com"
           git config --global user.name "gh-actions"
           yarn install --frozen-lockfile
