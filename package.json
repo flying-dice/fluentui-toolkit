@@ -1,0 +1,93 @@
+{
+  "name": "@flying-dice/fluentui-toolkit",
+  "version": "0.1.0",
+  "description": "Fluent UI Extensions Toolkit",
+  "license": "MIT",
+  "author": "Jonathan Turnock <Jonathan.Turnock@outlook.com>",
+  "homepage": "https://github.com/flying-dice/fluentui-toolkit",
+  "repository": "https://github.com/flying-dice/fluentui-toolkit",
+  "main": "dist/index.js",
+  "scripts": {
+    "postinstall": "yarn audit && yarn outdated",
+    "commit": "cz",
+    "release": "standard-version",
+    "prettier": "prettier src -c",
+    "prettier:fix": "prettier src -w",
+    "clean": "rimraf dist",
+    "prebuild": "yarn clean",
+    "build": "tsc && babel src --out-dir dist --extensions \".js,.ts,.jsx,.tsx\" --ignore **/__stubs__/**/*",
+    "ci": "yarn install && yarn prettier && cross-env CI=true yarn build",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "deploy-storybook": "yarn build-storybook && gh-pages -d storybook-static"
+  },
+  "dependencies": {
+    "@fluentui/react": "^7.158.1",
+    "@fluentui/react-theme-provider": "^0.18.1",
+    "lodash": "^4.17.20",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-responsive": "^8.2.0",
+    "styled-components": "^5.2.1",
+    "typescript": "^4.1.2",
+    "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.13",
+    "@babel/core": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "@babel/preset-react": "^7.12.13",
+    "@babel/preset-typescript": "^7.12.13",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@storybook/addon-actions": "^6.1.17",
+    "@storybook/addon-essentials": "^6.1.17",
+    "@storybook/addon-links": "^6.1.17",
+    "@storybook/node-logger": "^6.1.17",
+    "@storybook/preset-create-react-app": "^3.1.5",
+    "@storybook/react": "^6.1.17",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/lodash": "^4.14.168",
+    "@types/node": "^14.14.25",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-responsive": "^8.0.2",
+    "@types/styled-components": "^5.1.7",
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "gh-pages": "^3.1.0",
+    "husky": "^4.3.8",
+    "i18n-iso-countries": "^6.5.0",
+    "prettier": "^2.2.1",
+    "react-scripts": "^4.0.2",
+    "rimraf": "^3.0.2",
+    "standard-version": "^9.1.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "yarn prettier"
+    }
+  }
+}
