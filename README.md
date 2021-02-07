@@ -5,7 +5,7 @@ Additional Components and helpers to extend FluentUI
 ## Installation
 
 ```shell
-yarn install @flying-dice/fluentui-toolkit
+yarn add @flying-dice/fluentui-toolkit
 ```
 
 ## Usage
