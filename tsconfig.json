@@ -19,10 +19,14 @@
     "resolveJsonModule": true,
     "declaration": true,
     "incremental": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "isolatedModules": true,
+    "noEmit": true
   },
   "include": [
     "src"
   ],
-  "exclude": ["**/__stubs__/**/*"]
+  "exclude": [
+    "**/__stubs__/**/*"
+  ]
 }

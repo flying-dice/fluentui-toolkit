@@ -23,11 +23,5 @@ export const ExampleCountryPicker = () => {
     setSc(newSelection);
   };
 
-  return (
-    <CountryPicker
-      selectedCountries={sc}
-      availableCountries={ac}
-      onChange={handleChange}
-    />
-  );
+  return <CountryPicker selectedCountries={sc} availableCountries={ac} onChange={handleChange} />;
 };

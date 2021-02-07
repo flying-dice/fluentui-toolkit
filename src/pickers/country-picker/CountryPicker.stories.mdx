@@ -3,7 +3,7 @@ import { Label, Stack } from "@fluentui/react";
 import { CountryPicker } from "./CountryPicker";
 import { ExampleCountryPicker } from "./__stubs__/ExampleCountryPicker";
 
-<Meta title="Galleries & Pickers" component={CountryPicker} />
+<Meta title="Galleries & Pickers/CountryPicker" component={CountryPicker} />
 
 # Country Picker
 
@@ -36,7 +36,7 @@ selected by default, the first two countries from the list are selected, and the
 </Canvas>
 
 ```jsx
-// ExampleCountryPicker.jsx
+// ExampleDDInputContainer.jsx
 
 import { CountryPicker } from "./CountryPicker";
 import { useState } from "react";
@@ -53,7 +53,7 @@ const availableCountries = Object.values(
   }))
 );
 
-export const ExampleCountryPicker = () => {
+export const ExampleDDInputContainer = () => {
   const [ac, setAc] = useState(availableCountries.slice(2));
   const [sc, setSc] = useState(availableCountries.slice(0, 2));
 
@@ -63,12 +63,6 @@ export const ExampleCountryPicker = () => {
     setSc(newSelection);
   };
 
-  return (
-    <CountryPicker
-      selectedCountries={sc}
-      availableCountries={ac}
-      onChange={handleChange}
-    />
-  );
+  return <CountryPicker selectedCountries={sc} availableCountries={ac} onChange={handleChange} />;
 };
 ```

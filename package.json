@@ -13,7 +13,7 @@
     "release": "standard-version",
     "prettier": "prettier src -c",
     "prettier:fix": "prettier src -w",
-    "clean": "rimraf dist",
+    "clean": "rimraf dist storybook-static",
     "prebuild": "yarn clean",
     "build": "tsc && babel src --out-dir dist --extensions \".js,.ts,.jsx,.tsx\" --ignore **/__stubs__/**/*",
     "ci": "yarn install && yarn prettier && cross-env CI=true yarn build",
@@ -24,6 +24,8 @@
   "dependencies": {
     "@fluentui/react": "^7.158.1",
     "@fluentui/react-theme-provider": "^0.18.1",
+    "@flying-dice/commons": "^0.1.1",
+    "decimal.js": "^10.2.1",
     "lodash": "^4.17.20",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

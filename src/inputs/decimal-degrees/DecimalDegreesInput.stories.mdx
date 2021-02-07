@@ -1,0 +1,93 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Stack } from "@fluentui/react";
+import { DecimalDegreesInput } from "./DecimalDegreesInput";
+import { ExampleDDInputContainer } from "./__stubs__/ExampleDDInputContainer";
+
+<Meta
+  title="Inputs/DecimalDegreesInput"
+  component={DecimalDegreesInput}
+  args={{
+    readonly: false,
+    selectable: true,
+    label: "Location",
+    position: {
+      lat: -77.508333,
+      lng: 164.754167,
+    },
+    onChange: console.log,
+    onPinClick: () => alert("Select Pos Clicked"),
+  }}
+/>
+
+# Decimal Degrees Input
+
+The Decimal Degrees Input (DecimalDegreesInput) allows someone to select a Decimal Degrees set
+of coordinates using the SpinButtons, the Input Fields are Capped where Latitude (-90 to 90) and
+longitude (-180 to 180) they allow input up to 6 decimal places.
+
+export const Template = (args) => (
+  <Stack style={{ padding: "0.5rem" }} tokens={{ childrenGap: "0.5rem" }}>
+    <DecimalDegreesInput {...args} />
+  </Stack>
+);
+
+<Canvas>
+  <Story name="DecimalDegreesInput">{Template.bind({})}</Story>
+</Canvas>
+
+## API
+
+The API is identical to the existing [FluentUi SpinButton](https://developer.microsoft.com/en-us/fluentui#/controls/web/spinbutton)
+with the addition of an updated `onChange` prop API as follows
+
+- `selectable` - Boolean whether to show a button to choose the location, i.e. on map
+- `label` - Optional Name to display above input
+- `position` - Current Position for the input
+- `onChange` - Callback invoked with a latLong object upon changes
+- `onPinClick` - Callback invoked when the location selection pin is clicked
+
+## Example
+
+The below example shows how to use Input, changes are logged to the console.
+
+<Canvas>
+  <ExampleDDInputContainer />
+</Canvas>
+
+```jsx
+//ExampleDDInputContainer.jsx
+
+import { useState } from "react";
+import { DecimalDegreesInput } from "./DecimalDegreesInput";
+import { Text } from "@fluentui/react";
+import { latLongToString } from "@flying-dice/commons";
+
+export const ExampleDDInputContainer = () => {
+  const [position, setPosition] = useState({
+    lat: -77.508333,
+    lng: 164.754167,
+  });
+
+  const handleSelectPos = () => {
+    alert("Mocking Location Selection by making lat 45 & lng 90");
+    setPosition({ lat: 45, lng: 90 });
+  };
+
+  const handleChange = (newPos) => {
+    setPosition(newPos);
+  };
+
+  return (
+    <>
+      <DecimalDegreesInput
+        selectable
+        label="Home"
+        onChange={handleChange}
+        onPinClick={handleSelectPos}
+        position={position}
+      />
+      <Text>{latLongToString(position)}</Text>
+    </>
+  );
+};
+```

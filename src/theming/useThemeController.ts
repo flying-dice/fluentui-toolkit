@@ -12,10 +12,7 @@ export type IUseThemeControllerCallbacks = {
   enableTheme: (theme: ThemeType) => void;
 };
 
-export const useThemeController = (): [
-  ThemeType,
-  IUseThemeControllerCallbacks
-] => {
+export const useThemeController = (): [ThemeType, IUseThemeControllerCallbacks] => {
   const [theme, setTheme] = useState<ThemeType>(
     (localStorage.getItem("theme") as ThemeType) || "system"
   );

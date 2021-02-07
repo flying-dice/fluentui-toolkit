@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { map } from "lodash";
 import styled from "styled-components";
-import { ListPeoplePicker, IPersonaProps, Stack } from "@fluentui/react";
+import { IPersonaProps, ListPeoplePicker, Stack } from "@fluentui/react";
 import { countryToIPersonaProps, iPersonaPropsToCountry } from "./mappers";
 import { CountryPickerProps } from "./types";
 
@@ -21,15 +21,12 @@ export const CountryPicker: React.FC<CountryPickerProps> = ({
   availableCountries,
   onChange,
 }) => {
-  const available = useMemo(
-    () => map(availableCountries, countryToIPersonaProps),
-    [availableCountries]
-  );
+  const available = useMemo(() => map(availableCountries, countryToIPersonaProps), [
+    availableCountries,
+  ]);
 
   const selected = useMemo(
-    () =>
-      (selectedCountries && map(selectedCountries, countryToIPersonaProps)) ||
-      undefined,
+    () => (selectedCountries && map(selectedCountries, countryToIPersonaProps)) || undefined,
     [selectedCountries]
   );
 

@@ -17,9 +17,7 @@ export const AppThemeProvider: React.FC<IAppThemeProvider> = ({
 }) => {
   const darkSystem = useMediaQuery({ query: "(prefers-color-scheme: dark)" });
   const [theme, setTheme] = useState(
-    activeTheme === "dark" || (activeTheme === "system" && darkSystem)
-      ? darkTheme
-      : lightTheme
+    activeTheme === "dark" || (activeTheme === "system" && darkSystem) ? darkTheme : lightTheme
   );
 
   useEffect(() => {
