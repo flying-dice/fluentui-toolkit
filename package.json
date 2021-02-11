@@ -4,11 +4,10 @@
   "description": "Fluent UI Extensions Toolkit",
   "license": "MIT",
   "author": "Jonathan Turnock <Jonathan.Turnock@outlook.com>",
-  "homepage": "https://github.com/flying-dice/fluentui-toolkit",
+  "homepage": "https://flying-dice.github.io/fluentui-toolkit/",
   "repository": "https://github.com/flying-dice/fluentui-toolkit",
   "main": "dist/index.js",
   "scripts": {
-    "postinstall": "yarn audit && yarn outdated",
     "commit": "cz",
     "release": "standard-version",
     "prettier": "prettier src -c",
@@ -90,7 +89,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn prettier"
+      "pre-commit": "yarn audit && yarn prettier"
     }
   }
 }
