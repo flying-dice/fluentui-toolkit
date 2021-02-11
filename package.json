@@ -14,7 +14,7 @@
     "prettier:fix": "prettier src -w",
     "clean": "rimraf dist storybook-static",
     "prebuild": "yarn clean",
-    "build": "tsc && babel src --out-dir dist --extensions \".js,.ts,.jsx,.tsx\" --ignore **/__stubs__/**/*",
+    "build": "tsc",
     "ci": "yarn install && yarn prettier && cross-env CI=true yarn build",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
@@ -34,11 +34,6 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.13",
-    "@babel/core": "^7.12.13",
-    "@babel/preset-env": "^7.12.13",
-    "@babel/preset-react": "^7.12.13",
-    "@babel/preset-typescript": "^7.12.13",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@storybook/addon-actions": "^6.1.17",
@@ -72,18 +67,6 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
     ]
   },
   "husky": {
