@@ -1974,6 +1974,11 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.6.0.tgz#f022195afdfc942e088ee2101285a1d31c7d727f"
   integrity sha512-cPqjjzuFWNK3BSKLm0abspP0sp/IGOli4p5I5fKFAzdS8fvjdOwDCfZqAaIiXd9lPkOWi3SUUfZof3hEb7J/uw==
 
+"@prezly/react-promise-modal@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@prezly/react-promise-modal/-/react-promise-modal-0.2.0.tgz#395d86b12edf491a37d5c6a95aa28a8e6d7be464"
+  integrity sha512-nOcohAx7JynNR9bfOD3heDYBjW7/pmDreO4o0zNjgCiXK6JcxImXcEY6S/EV4mxQdCrTmUy4/FPVr7zpCGU3Zw==
+
 "@reach/router@^1.3.3":
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/@reach/router/-/router-1.3.4.tgz#d2574b19370a70c80480ed91f3da840136d10f8c"
@@ -16546,6 +16551,11 @@ ts-essentials@^2.0.3:
   version "2.0.12"
   resolved "https://registry.yarnpkg.com/ts-essentials/-/ts-essentials-2.0.12.tgz#c9303f3d74f75fa7528c3d49b80e089ab09d8745"
   integrity sha512-3IVX4nI6B5cc31/GFFE+i8ey/N2eA0CZDbo6n0yrz0zDX8ZJ8djmU1p+XRz7G3is0F3bB3pu2pAroFdAWQKU3w==
+
+ts-key-enum@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/ts-key-enum/-/ts-key-enum-2.0.7.tgz#ea2c6f3bd770257a3d70fd60625bc3e99d19ab1e"
+  integrity sha512-i5K1p6o5J2EMNS3DVpVdpsJnFMWNE01kBjnw5evS/XgBYiu/oo/mxamOOEVYn/uPbIaxl5iDVSbAcFCDY55tmw==
 
 ts-pnp@1.2.0, ts-pnp@^1.1.6:
   version "1.2.0"
