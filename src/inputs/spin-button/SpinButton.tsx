@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { ISpinButtonProps, SpinButton as FuiSpinButton } from "@fluentui/react";
 import { debounce } from "lodash";
-import { clampNum, decrement, increment, swallow } from "../../@utils";
+import { clampNum, decrement, increment, swallow } from "../../@funcd";
 
 export type ISpinButton = {
   onChange?: (newValue: string) => void;

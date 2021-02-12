@@ -1,0 +1,127 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="logger/API" />
+
+# Flying Dice Logger
+
+The FluentUI Toolkit provides a logger to use in React Projects.
+
+It's a simple logger that takes care of tweaking levels and hiding the API.
+
+It also cannot be hijacked by renaming local store items or changing window references.
+
+If you do not supply a `LoggerProvider` the components still use the default context which is
+console logging all `warnings` and `errors`. Trace -> Info is swallowed
+
+## Example
+
+### Installing
+
+```tsx
+import React from "react";
+import { LoggerLevel, LoggerProvider } from "@flying-dice/fluentui-toolkit";
+
+const MyApp = () => {
+  return (
+    <LoggerProvider logger={console} level={LoggerLevel.DEBUG} namespace={"MyApp:*"}>
+      ...
+    </LoggerProvider>
+  );
+};
+
+export default App;
+```
+
+### Usage
+
+```jsx
+import React from "react"
+import { useLogger } from "@flying-dice/fluentui-toolkit"
+
+export const MyComponent = () => {
+  const { debug, info } = useLogger("MyApp:MyComponent");
+  ...
+}
+```
+
+## Options
+
+### Delegate log level to logger
+
+To delegate the log level federation to the logger i.e. winston transport simply omit the
+log level prop from the provider
+
+```jsx
+import React from "react";
+import { LoggerLevel, LoggerProvider } from "@flying-dice/fluentui-toolkit";
+
+const MyApp = () => {
+  return (
+    <LoggerProvider logger={console} namespace={"MyApp:*"}>
+      ...
+    </LoggerProvider>
+  );
+};
+
+export default App;
+```
+
+## Functions
+
+<dl>
+  <dt>
+    <a href="#LoggerProvider">LoggerProvider(level, logger, namespace)</a>
+  </dt>
+  <dd>
+    <p>Logger provider to Wrap around an application and expose logs from flying-dice components</p>
+  </dd>
+  <dt>
+    <a href="#useLogger">useLogger(namespace)</a> ⇒ <code>ILogger</code>
+  </dt>
+  <dd>
+    <p>Hook to create a logger HOF which wraps a namespace</p>
+  </dd>
+</dl>
+
+<a name="LoggerProvider"></a>
+
+## LoggerProvider(level, logger, namespace)
+
+Logger provider to Wrap around an application and expose logs from flying-dice components
+
+**Kind**: global function
+
+| Param     | Type                     | Description                            |
+| --------- | ------------------------ | -------------------------------------- |
+| level     | <code>LoggerLevel</code> | Which Log Level to use                 |
+| logger    | <code>ILogger</code>     | Which Logger to use, i.e. Console      |
+| namespace | <code>string</code>      | Which namespace to match i.e. MyApp:\* |
+
+<a name="useLogger"></a>
+
+## useLogger(namespace) ⇒ <code>ILogger</code>
+
+Hook to create a logger HOF which wraps a namespace
+
+**Kind**: global function  
+**Returns**: <code>ILogger</code> - Returns the Logger HOF which includes the namespace being called from
+
+| Param     | Type                | Description                         |
+| --------- | ------------------- | ----------------------------------- |
+| namespace | <code>string</code> | The Namespace to bing the logger to |
+
+**Example**
+
+```jsx
+ import React from "react"
+ import { useLogger } from "@flying-dice/fluentui-toolkit"
+
+ export const MyComponent = () => {
+  const { debug, info } = useLogger("MyApp:MyComponent");
+  ...
+
+  useEffect(() => {
+    debug("Hello World!");
+  }, [])
+}
+```

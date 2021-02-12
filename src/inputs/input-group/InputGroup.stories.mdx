@@ -1,0 +1,46 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { TextField } from "@fluentui/react";
+import { InputGroup } from "./InputGroup";
+
+<Meta
+  title="Inputs/InputGroup"
+  component={InputGroup}
+  args={{
+    label: "Address",
+    horizontal: false,
+  }}
+/>
+
+# Input Group
+
+An Input Group is a collection of Inputs under a top level name.
+
+export const Template = (args) => (
+  <InputGroup {...args}>
+    <TextField label="Name" />
+    <TextField label="Summary" multiline rows={5} />
+  </InputGroup>
+);
+
+<Canvas>
+  <Story name="InputGroup">{Template.bind({})}</Story>
+</Canvas>
+
+## Example
+
+The below example shows how to use the Input Group to group Information
+
+```jsx
+import React from "react";
+import { TextField } from "@fluentui/react";
+import { InputGroup } from "@flying-dice/fluentui-toolkit";
+
+export const Information = ({ name, summary }) => {
+  return (
+    <InputGroup label="Information">
+      <TextField label="Name" defaultValue={name} />
+      <TextField label="Summary" multiline rows={5} defaultValue={summary} />
+    </InputGroup>
+  );
+};
+```
