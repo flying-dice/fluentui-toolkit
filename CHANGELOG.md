@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/flying-dice/fluentui-toolkit/compare/v0.1.6...v0.1.7) (2021-02-13)
+
+
+### Features
+
+* **lists,dialogs:** add lists and refactor ([8eee773](https://github.com/flying-dice/fluentui-toolkit/commit/8eee7733b90134418ca0e5698722c3482b72bc8b)), closes [#11](https://github.com/flying-dice/fluentui-toolkit/issues/11)
+* **various:** adds various components and features ([0e085f0](https://github.com/flying-dice/fluentui-toolkit/commit/0e085f02e983ae1982d91e8f24f7b08b66877864)), closes [#10](https://github.com/flying-dice/fluentui-toolkit/issues/10) [#9](https://github.com/flying-dice/fluentui-toolkit/issues/9) [#4](https://github.com/flying-dice/fluentui-toolkit/issues/4)
+
 ### [0.1.6](https://github.com/flying-dice/fluentui-toolkit/compare/v0.1.5...v0.1.6) (2021-02-11)
 
 
