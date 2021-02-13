@@ -1,0 +1,200 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Text } from "@fluentui/react";
+import { ListItem } from "./ListItem";
+import { CollapsibleListItemExample } from "./__stubs__/CollapsibleListItemExample";
+import { CollapsibleListItemExpanderExample } from "./__stubs__/CollapsibleListItemExpanderExample";
+
+<Meta title="Lists/List" />
+
+# Lists
+
+There are a few different list wrappers that are available to simplify the Advanced List types
+on offer by `@fluentui/react`
+
+## Simple List
+
+Below is an example of a Simple List Showing 3 List Items with Text, if supplied with iconProps
+the List item will also render an Icon, it shows how to use inline styling to change the list
+appearance.
+
+<Canvas>
+  <Story name="Simple List">
+    <ListItem
+      style={{ padding: "0.5rem" }}
+      iconProps={{ iconName: "Send", style: { paddingRight: "0." + "5rem" } }}
+      onClick={alert}
+    >
+      <Text variant={"medium"} style={{ fontWeight: "bold" }}>
+        Sent Mail
+      </Text>
+    </ListItem>
+    <ListItem style={{ padding: "0.5rem" }}>
+      <Text variant={"medium"}>Drafts</Text>
+    </ListItem>
+    <ListItem style={{ padding: "0.5rem" }}>
+      <Text variant={"medium"}>Inbox</Text>
+    </ListItem>
+  </Story>
+</Canvas>
+
+```jsx
+import { Stack, Text } from "@fluentui/react";
+import { ListItem } from "@flying-dice/fluentui-toolkit";
+
+export const ListItemExample = () => {
+  return (
+    <Stack>
+      <ListItem
+        style={{ padding: "0.5rem" }}
+        iconProps={{ iconName: "Send", style: { paddingRight: "0." + "5rem" } }}
+        onClick={alert}
+      >
+        <Text variant={"medium"} style={{ fontWeight: "bold" }}>
+          Sent Mail
+        </Text>
+      </ListItem>
+      <ListItem style={{ padding: "0.5rem" }}>
+        <Text variant={"medium"}>Drafts</Text>
+      </ListItem>
+      <ListItem style={{ padding: "0.5rem" }}>
+        <Text variant={"medium"}>Inbox</Text>
+      </ListItem>
+    </Stack>
+  );
+};
+```
+
+## Collapsible List (Basic)
+
+Below is an example of a Collapsible List Showing how a list item can be combined to create a
+collapsible subsection, it also demonstrates the use of styling via CSS classes and container CSS
+
+<Canvas>
+  <Story name="Collapsible List">
+    <CollapsibleListItemExample />
+  </Story>
+</Canvas>
+
+```jsx
+import { Stack } from "@fluentui/react";
+import { useBoolean } from "@fluentui/react-hooks";
+import { ListItem } from "@flying-dice/fluentui-toolkit";
+import styled from "styled-components";
+
+const getIconProps = (iconName) => ({
+  iconName,
+});
+
+const getNestedStyle = (depth) => ({
+  paddingLeft: 3 * depth + "rem",
+});
+
+const StackContainer = styled(Stack)`
+  & > .fd-list-item {
+    padding: 1rem;
+
+    & > .fd-list-item_icon {
+      padding-right: 1rem;
+    }
+  }
+`;
+
+export const CollapsibleListItemExample = () => {
+  const [open, { toggle }] = useBoolean(false);
+
+  return (
+    <StackContainer>
+      <ListItem iconProps={getIconProps("Send")}>Sent</ListItem>
+      <ListItem iconProps={getIconProps("Edit")}>Drafts</ListItem>
+      <ListItem iconProps={getIconProps(open ? "ChevronDown" : "ChevronRight")} onClick={toggle}>
+        Folders
+      </ListItem>
+      {open && (
+        <>
+          <ListItem style={getNestedStyle(1)}>Household</ListItem>
+          <ListItem style={getNestedStyle(1)}>Work</ListItem>
+        </>
+      )}
+    </StackContainer>
+  );
+};
+```
+
+## Collapsible List (With Expander)
+
+Below is an example of a Collapsible List but this time using the ListItemExpander component to
+control the expansion
+
+The `Folders` item shows how we can inherit all the defaults of the ListItemExpander and set
+square to `true` which causes the width to match the height.
+
+The `Trash` shows how customizable the component can be.
+
+<Canvas>
+  <Story name="Collapsible List (Expander)">
+    <CollapsibleListItemExpanderExample />
+  </Story>
+</Canvas>
+
+```jsx
+import { Stack, Text } from "@fluentui/react";
+import { useBoolean } from "@fluentui/react-hooks";
+import { ListItem } from "../ListItem";
+import { ListItemExpander } from "../ListItemExpander";
+import styled from "styled-components";
+
+const getIconProps = (iconName) => ({
+  iconName,
+});
+
+const getNestedStyle = (depth) => ({
+  paddingLeft: 3 * depth + "rem",
+});
+
+const StackContainer = styled(Stack)`
+  & > .fd-list-item {
+    height: 2.5rem;
+
+    & > .fd-list-item_icon {
+      padding: 1rem;
+    }
+  }
+`;
+
+export const CollapsibleListItemExpanderExample = () => {
+  const [foldersOpen, { toggle: toggleFolders }] = useBoolean(false);
+  const [trashOpen, { toggle: toggleTrash }] = useBoolean(false);
+
+  return (
+    <StackContainer>
+      <ListItem iconProps={getIconProps("Send")}>Sent</ListItem>
+      <ListItem iconProps={getIconProps("Edit")}>Drafts</ListItem>
+      <ListItem>
+        <ListItemExpander square toggle={toggleFolders} isExpanded={foldersOpen} />
+        <Text style={{ paddingLeft: "0.5rem" }}>Folders</Text>
+      </ListItem>
+      {foldersOpen && (
+        <>
+          <ListItem style={getNestedStyle(1)}>Household</ListItem>
+          <ListItem style={getNestedStyle(1)}>Work</ListItem>
+        </>
+      )}
+      <ListItem>
+        <ListItemExpander
+          style={{ width: "64px" }}
+          iconProps={{ iconName: "CaretRightSolid8" }}
+          toggle={toggleTrash}
+          isExpanded={trashOpen}
+        />
+        <Text style={{ paddingLeft: "0.5rem" }}>Trash</Text>
+      </ListItem>
+      {trashOpen && (
+        <>
+          <ListItem style={getNestedStyle(1.5)}>Household</ListItem>
+          <ListItem style={getNestedStyle(1.5)}>Work</ListItem>
+        </>
+      )}
+    </StackContainer>
+  );
+};
+```

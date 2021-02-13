@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 
 import { Dialog, DialogFooter, DialogType, PrimaryButton } from "@fluentui/react";
 import reactModal from "@prezly/react-promise-modal";
-import { AwaitableDialogProps } from "./types";
+import { IAwaitableDialog } from "./IAwaitableDialog";
 
 const dialogStyles = { main: { maxWidth: 450 } };
 const modalProps = {
@@ -14,7 +14,7 @@ export type IAlertDialog = {
   title: string;
   text: string;
 };
-export const AlertDialog: React.FC<IAlertDialog & AwaitableDialogProps<boolean>> = ({
+export const AlertDialog: React.FC<IAlertDialog & IAwaitableDialog<boolean>> = ({
   title,
   text,
   hidden,

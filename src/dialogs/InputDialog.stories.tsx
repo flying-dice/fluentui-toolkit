@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react/types-6-0";
 import { DefaultButton, Text } from "@fluentui/react";
 import { fuiInput, IInputDialog, InputDialog } from "./InputDialog";
-import { AwaitableDialogProps } from "./types";
+import { IAwaitableDialog } from "./IAwaitableDialog";
 
 const Container: React.FC = () => {
   const [result, setResult] = useState<string>("");
@@ -31,7 +31,7 @@ export default {
   component: InputDialog,
 } as Meta;
 
-const Template: Story<IInputDialog & AwaitableDialogProps<string>> = (args) => (
+const Template: Story<IInputDialog & IAwaitableDialog<string>> = (args) => (
   <InputDialog {...args} />
 );
 

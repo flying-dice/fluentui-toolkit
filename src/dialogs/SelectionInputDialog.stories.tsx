@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Meta, Story } from "@storybook/react/types-6-0";
 import { DefaultButton, Text } from "@fluentui/react";
-import { AwaitableDialogProps } from "./types";
+import { IAwaitableDialog } from "./IAwaitableDialog";
 import {
   fuiSelectionInput,
   ISelectionInputDialog,
@@ -40,7 +40,7 @@ export default {
   component: SelectionInputDialog,
 } as Meta;
 
-const Template: Story<ISelectionInputDialog & AwaitableDialogProps<string>> = (args) => (
+const Template: Story<ISelectionInputDialog & IAwaitableDialog<string>> = (args) => (
   <SelectionInputDialog {...args} />
 );
 

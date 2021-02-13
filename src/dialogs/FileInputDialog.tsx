@@ -1,13 +1,13 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import reactModal from "@prezly/react-promise-modal";
 import { debounce } from "lodash";
-import { AwaitableDialogProps } from "./types";
+import { IAwaitableDialog } from "./IAwaitableDialog";
 
 export type IFileInputDialog = {
   multiple?: boolean;
   accept?: string;
 };
-export const FileInputDialog: React.FC<IFileInputDialog & AwaitableDialogProps<FileList>> = ({
+export const FileInputDialog: React.FC<IFileInputDialog & IAwaitableDialog<FileList>> = ({
   multiple,
   accept,
   onSubmit,

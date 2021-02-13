@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react/types-6-0";
 import { DefaultButton, Text } from "@fluentui/react";
 import { ConfirmationDialog, fuiConfirm, IConfirmationDialog } from "./ConfirmationDialog";
-import { AwaitableDialogProps } from "./types";
+import { IAwaitableDialog } from "./IAwaitableDialog";
 
 const Container: React.FC = () => {
   const [result, setResult] = useState<boolean>(false);
@@ -30,7 +30,7 @@ export default {
   component: ConfirmationDialog,
 } as Meta;
 
-const Template: Story<IConfirmationDialog & AwaitableDialogProps<boolean>> = (args) => (
+const Template: Story<IConfirmationDialog & IAwaitableDialog<boolean>> = (args) => (
   <ConfirmationDialog {...args} />
 );
 

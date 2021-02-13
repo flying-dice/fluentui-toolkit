@@ -10,7 +10,7 @@ import {
 } from "@fluentui/react";
 import reactModal from "@prezly/react-promise-modal";
 import { Key } from "ts-key-enum";
-import { AwaitableDialogProps } from "./types";
+import { IAwaitableDialog } from "./IAwaitableDialog";
 
 const dialogStyles = { main: { maxWidth: 450 } };
 const modalProps = {
@@ -24,7 +24,7 @@ export type IInputDialog = {
   placeholder?: string;
   defaultValue?: string;
 };
-export const InputDialog: React.FC<IInputDialog & AwaitableDialogProps<string>> = ({
+export const InputDialog: React.FC<IInputDialog & IAwaitableDialog<string>> = ({
   title,
   label,
   placeholder,

@@ -11,8 +11,8 @@ import {
   PrimaryButton,
 } from "@fluentui/react";
 import reactModal from "@prezly/react-promise-modal";
-import { AwaitableDialogProps } from "./types";
 import { Key } from "ts-key-enum";
+import { IAwaitableDialog } from "./IAwaitableDialog";
 
 const dialogStyles = { main: { maxWidth: 450 } };
 const modalProps = {
@@ -26,9 +26,15 @@ export type ISelectionInputDialog = {
   options: IDropdownOption[];
   defaultSelectedKey?: string;
 };
-export const SelectionInputDialog: React.FC<
-  ISelectionInputDialog & AwaitableDialogProps<string>
-> = ({ title, label, options, defaultSelectedKey, hidden, onSubmit, onDismiss }) => {
+export const SelectionInputDialog: React.FC<ISelectionInputDialog & IAwaitableDialog<string>> = ({
+  title,
+  label,
+  options,
+  defaultSelectedKey,
+  hidden,
+  onSubmit,
+  onDismiss,
+}) => {
   const input = useRef<IDropdown>();
   const dialogContentProps = useMemo(
     () => ({

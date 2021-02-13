@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react/types-6-0";
 import { DefaultButton, Text } from "@fluentui/react";
 import { AlertDialog, fuiAlert, IAlertDialog } from "./AlertDialog";
-import { AwaitableDialogProps } from "./types";
+import { IAwaitableDialog } from "./IAwaitableDialog";
 
 const Container: React.FC = () => {
   const [result, setResult] = useState<boolean>(false);
@@ -31,7 +31,7 @@ export default {
 } as Meta;
 
 // @ts-ignore
-const Template: Story<IAlertDialog & AwaitableDialogProps<boolean>> = (args) => (
+const Template: Story<IAlertDialog & IAwaitableDialog<boolean>> = (args) => (
   <AlertDialog {...args} />
 );
 

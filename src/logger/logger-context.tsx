@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 import { isMatch } from "matcher";
-import { swallow } from "../@funcd";
+import { swallow } from "../helpers";
 
 export type ILogger = {
   trace(message?: any, ...optionalParams: any[]): void;
