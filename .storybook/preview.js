@@ -1,7 +1,7 @@
-import { initializeIcons, loadTheme } from "@fluentui/react";
-import { ThemeProvider } from "@fluentui/react-theme-provider";
-import { darkTheme, lightTheme } from "./themes";
+import { initializeIcons } from "@fluentui/react";
+import { AppThemeProvider, useThemeController } from "../src";
 import { useEffect } from "react";
+import { darkTheme, lightTheme } from "./themes";
 
 initializeIcons();
 
@@ -22,16 +22,16 @@ export const globalTypes = {
 };
 
 const withThemeProvider = (Story, context) => {
-  const theme = context.globals.theme === "light" ? lightTheme : darkTheme;
+  const [theme, { enableTheme }] = useThemeController();
 
   useEffect(() => {
-    loadTheme(theme);
-  }, []);
+    enableTheme(context.globals.theme);
+  }, [context.globals.theme]);
 
   return (
-    <ThemeProvider theme={theme}>
+    <AppThemeProvider activeTheme={theme} lightTheme={lightTheme} darkTheme={darkTheme}>
       <Story {...context} />
-    </ThemeProvider>
+    </AppThemeProvider>
   );
 };
 export const decorators = [withThemeProvider];

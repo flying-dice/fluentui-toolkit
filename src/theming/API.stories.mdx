@@ -2,6 +2,62 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 <Meta title="theming/API" />
 
+## Functions
+
+<dl>
+  <dt>
+    <a href="#useTheme">useTheme()</a>
+  </dt>
+  <dd>
+    <p>
+      Hook to access the active theme from the <code>ThemeContext</code>
+    </p>
+    <p>Will react to changes in theme as toggled by theme controller.</p>
+  </dd>
+  <dt>
+    <a href="#useThemeController">useThemeController()</a>
+  </dt>
+  <dd>
+    <p>
+      the <code>useThemeController</code> hook should be used in conjunction with the{" "}
+      <code>AppThemeProvider</code>, it gives access to the active theme and also callbacks to
+      select the next/specific theme.
+    </p>
+    <p>
+      The selected Theme is stored in localStorage under <code>theme</code> as either &quot;
+      <code>light</code>&quot;, &quot;<code>dark</code>&quot; or &quot;<code>system</code>&quot; it will
+      be extracted from local storage to ensure persistence.
+    </p>
+    <p>
+      The theme returned by the hook is this &quot;<code>light/dark/system</code>&quot; key, you
+      should use the <code>useTheme</code>
+      hook to access the actual theme.
+    </p>
+  </dd>
+</dl>
+
+<a name="useTheme"></a>
+
+## useTheme()
+
+Hook to access the active theme from the `ThemeContext`
+
+Will react to changes in theme as toggled by theme controller.
+
+**Kind**: global function  
+**Example**
+
+```js
+import React from "react";
+import { AutoStack, useTheme } from "@flying-dice/fluentui-toolkit";
+
+export const ListWrapper: React.FC<IListWrapper> = ({ children }) => {
+  const { palette } = useTheme();
+
+  return <AutoStack style={{ backgroundColor: palette.white }}>{children}</AutoStack>;
+};
+```
+
 <a name="useThemeController"></a>
 
 ## useThemeController()
@@ -13,7 +69,7 @@ The selected Theme is stored in localStorage under `theme` as either "`light`", 
 it will be extracted from local storage to ensure persistence.
 
 The theme returned by the hook is this "`light/dark/system`" key, you should use the `useTheme`
-hook as exposed by `@fluentui/react` to access the actual theme.
+hook to access the actual theme.
 
 **Kind**: global function  
 **Example**

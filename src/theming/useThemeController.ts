@@ -20,7 +20,7 @@ export type IUseThemeControllerCallbacks = {
  *  it will be extracted from local storage to ensure persistence.
  *
  * The theme returned by the hook is this "`light/dark/system`" key, you should use the `useTheme`
- * hook as exposed by `@fluentui/react` to access the actual theme.
+ * hook to access the actual theme.
  *
  * @example
  * import { createTheme, initializeIcons } from "@fluentui/react"
