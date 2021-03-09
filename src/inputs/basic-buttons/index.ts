@@ -1,1 +1,1 @@
-export * from "./DangerButton"
+export * from "./DangerButton";

@@ -1,4 +1,4 @@
-export { DangerButton } from "./basic-buttons"
+export { DangerButton } from "./basic-buttons";
 export { DecimalDegreesInput } from "./decimal-degrees";
 export { SpinButton } from "./spin-button";
 export { InputGroup } from "./input-group";
