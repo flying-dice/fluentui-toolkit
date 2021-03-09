@@ -1,0 +1,35 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Label, Stack } from "@fluentui/react";
+import { DangerButton } from "./DangerButton";
+
+<Meta
+  title="Inputs/DangerButton"
+  component={DangerButton}
+  args={{
+    text: "Delete",
+    alpha: 0.5,
+  }}
+/>
+
+# Danger Button
+
+Simple Danger Button with alpha value to increase/decrease the strength of the danger color
+
+export const Template = (args) => (
+  <Stack style={{ padding: "0.5rem" }}>
+    <Label>Danger Zone</Label>
+    <DangerButton {...args} onClick={() => alert("Are you sure!")} />
+  </Stack>
+);
+
+<Canvas>
+  <Story name="DangerButton">{Template.bind({})}</Story>
+</Canvas>
+
+# Example
+
+```tsx
+import { DangerButton } from "./DangerButton";
+
+<DangerButton text="Delete" onClick={() => alert("Are you sure!")} />;
+```
