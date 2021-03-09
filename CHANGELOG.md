@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.9](https://github.com/flying-dice/fluentui-toolkit/compare/v0.1.8...v0.1.9) (2021-03-09)
+
+
+### Features
+
+* **buttons:** add danger-button ([2f65220](https://github.com/flying-dice/fluentui-toolkit/commit/2f652200f20f45cf6ba169162139341506520597))
+
 ### [0.1.8](https://github.com/flying-dice/fluentui-toolkit/compare/v0.1.7...v0.1.8) (2021-02-14)
 
 
