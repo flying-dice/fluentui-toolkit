@@ -8,7 +8,6 @@
   "repository": "https://github.com/flying-dice/fluentui-toolkit",
   "main": "dist/index.js",
   "scripts": {
-    "postinstall": "husky install",
     "commit": "cz",
     "release": "standard-version",
     "prettier": "prettier src -c",
