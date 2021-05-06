@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/flying-dice/fluentui-toolkit/compare/v0.1.10...v0.1.11) (2021-05-06)
+
+
+### Features
+
+* **country-picker:** extend picker api ([e3825ad](https://github.com/flying-dice/fluentui-toolkit/commit/e3825ad1f4fa7db81ede20b2e7babae300ab23c6))
+
 ### [0.1.10](https://github.com/flying-dice/fluentui-toolkit/compare/v0.1.9...v0.1.10) (2021-03-09)
 
 ### [0.1.9](https://github.com/flying-dice/fluentui-toolkit/compare/v0.1.8...v0.1.9) (2021-03-09)
