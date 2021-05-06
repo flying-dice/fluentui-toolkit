@@ -1,10 +1,12 @@
+import { IPeoplePickerProps } from "@fluentui/react";
+
 export type CountryPickerVariant = "Normal" | "List";
 
-export type CountryPickerProps = {
+export type CountryPickerProps = Omit<IPeoplePickerProps, "onResolveSuggestions" | "onChange"> & {
   selectedCountries?: Country[];
   availableCountries: Country[];
   onChange?: (countries: Country[]) => void;
-  variant: CountryPickerVariant;
+  variant?: CountryPickerVariant;
 };
 
 export type Country = {

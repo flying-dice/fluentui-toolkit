@@ -27,7 +27,7 @@ const PeoplePickerVariants: Record<CountryPickerVariant, FunctionComponent<IPeop
   List: ListPeoplePicker,
 };
 
-export const CountryPicker: React.FC<CountryPickerProps & IPeoplePickerProps> = (props) => {
+export const CountryPicker: React.FC<CountryPickerProps> = (props) => {
   const available = useMemo(() => map(props.availableCountries, countryToIPersonaProps), [
     props.availableCountries,
   ]);
