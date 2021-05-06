@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.12](https://github.com/flying-dice/fluentui-toolkit/compare/v0.1.11...v0.1.12) (2021-05-06)
+
+
+### Bug Fixes
+
+* **country-picker:** fix inputs ([b321da1](https://github.com/flying-dice/fluentui-toolkit/commit/b321da132b7b6bfe1b976f98a74ee7f38c98572c))
+
 ### [0.1.11](https://github.com/flying-dice/fluentui-toolkit/compare/v0.1.10...v0.1.11) (2021-05-06)
 
 
