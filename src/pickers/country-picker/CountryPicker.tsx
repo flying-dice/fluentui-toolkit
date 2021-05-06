@@ -1,9 +1,15 @@
-import React, { useMemo } from "react";
+import React, { FunctionComponent, useMemo } from "react";
 import { map } from "lodash";
 import styled from "styled-components";
-import { IPersonaProps, ListPeoplePicker, Stack } from "@fluentui/react";
+import {
+  IPeoplePickerProps,
+  IPersonaProps,
+  ListPeoplePicker,
+  NormalPeoplePicker,
+  Stack,
+} from "@fluentui/react";
 import { countryToIPersonaProps, iPersonaPropsToCountry } from "./mappers";
-import { CountryPickerProps } from "./types";
+import { CountryPickerProps, CountryPickerVariant } from "./types";
 
 const FlagPileContainer = styled(Stack)`
   & > div {
@@ -16,19 +22,24 @@ const FlagPileContainer = styled(Stack)`
   }
 `;
 
-export const CountryPicker: React.FC<CountryPickerProps> = ({
-  selectedCountries,
-  availableCountries,
-  onChange,
-}) => {
-  const available = useMemo(() => map(availableCountries, countryToIPersonaProps), [
-    availableCountries,
+const PeoplePickerVariants: Record<CountryPickerVariant, FunctionComponent<IPeoplePickerProps>> = {
+  Normal: NormalPeoplePicker,
+  List: ListPeoplePicker,
+};
+
+export const CountryPicker: React.FC<CountryPickerProps & IPeoplePickerProps> = (props) => {
+  const available = useMemo(() => map(props.availableCountries, countryToIPersonaProps), [
+    props.availableCountries,
   ]);
 
   const selected = useMemo(
-    () => (selectedCountries && map(selectedCountries, countryToIPersonaProps)) || undefined,
-    [selectedCountries]
+    () =>
+      (props.selectedCountries && map(props.selectedCountries, countryToIPersonaProps)) ||
+      undefined,
+    [props.selectedCountries]
   );
+
+  const Picker = useMemo(() => PeoplePickerVariants[props.variant || "Normal"], [props.variant]);
 
   const resolveSuggestions = (filter: string) => {
     if (filter === " ") {
@@ -42,16 +53,17 @@ export const CountryPicker: React.FC<CountryPickerProps> = ({
   };
 
   const handleChange = (items: IPersonaProps[] | undefined) => {
-    if (items && onChange) {
+    if (items && props.onChange) {
       // @ts-ignore
       const countryItems = items.map(iPersonaPropsToCountry);
-      onChange(countryItems);
+      props.onChange(countryItems);
     }
   };
 
   return (
     <FlagPileContainer horizontal tokens={{ childrenGap: "0.5rem" }}>
-      <ListPeoplePicker
+      <Picker
+        {...props}
         selectedItems={selected}
         onResolveSuggestions={resolveSuggestions}
         onChange={handleChange}

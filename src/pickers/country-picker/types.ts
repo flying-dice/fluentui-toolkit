@@ -1,7 +1,10 @@
+export type CountryPickerVariant = "Normal" | "List";
+
 export type CountryPickerProps = {
   selectedCountries?: Country[];
   availableCountries: Country[];
   onChange?: (countries: Country[]) => void;
+  variant: CountryPickerVariant;
 };
 
 export type Country = {
