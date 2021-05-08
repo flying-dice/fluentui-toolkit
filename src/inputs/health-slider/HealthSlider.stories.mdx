@@ -1,0 +1,37 @@
+import { Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Stack } from "@fluentui/react";
+import { HealthSlider } from "./HealthSlider";
+
+<Meta
+  title="Inputs/HealthSlider"
+  component={HealthSlider}
+  args={{
+    health: 1,
+    onChange: alert,
+  }}
+/>
+
+# Health Slider Input
+
+Health Slider Component, takes a Health Between 0 and 1 and provides a 0-100% slider.
+
+Used for representing Health in Editable Menus
+
+export const Template = (args) => (
+  <Stack style={{ padding: "0.5rem", width: "200px" }} tokens={{ childrenGap: "0.5rem" }}>
+    <HealthSlider {...args} />
+  </Stack>
+);
+
+<Canvas>
+  <Story name="HealthSlider">{Template.bind({})}</Story>
+</Canvas>
+
+## API
+
+The API Extends the default Slider API with Health and an onChange listener
+
+See https://developer.microsoft.com/en-us/fluentui#/controls/web/slider
+
+- `health` - Current Health, between 0 and 1
+- `onChange` - Callback invoked when the slider changes (this is debounced to 250ms)
