@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.13](https://github.com/flying-dice/fluentui-toolkit/compare/v0.1.12...v0.1.13) (2021-05-08)
+
+
+### Features
+
+* **inputs:** add health slider ([980017d](https://github.com/flying-dice/fluentui-toolkit/commit/980017dd800086927d0932773aa34990d086237c))
+
 ### [0.1.12](https://github.com/flying-dice/fluentui-toolkit/compare/v0.1.11...v0.1.12) (2021-05-06)
 
 
