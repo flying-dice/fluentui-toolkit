@@ -1,24 +1,25 @@
-import {Meta} from "@storybook/addon-docs/blocks";
+import { Meta } from "@storybook/addon-docs/blocks";
 
 <Meta title="inputs/API" />
-
-
 
 <a name="debouncedChangeHandler"></a>
 
 ## debouncedChangeHandler(callback, wait) ⇒
-HOF which takes a function (the callback) and returns a debounced function which handles theonChange event of a TextField and extracts the newValue, in turn calling the callback withthe new value.
+
+HOF which takes a function (the callback) and returns a debounced function which handles the
+onChange event of a TextField and extracts the newValue, in turn calling the callback with
+the new value.
 
 **Kind**: global function  
-**Returns**: Debounced onChange handler  
+**Returns**: Debounced onChange handler
 
-| Param | Type | Description |
-| --- | --- | --- |
+| Param    | Type                  | Description            |
+| -------- | --------------------- | ---------------------- |
 | callback | <code>function</code> | Invoked after debounce |
-| wait | <code>number</code> | debounce wait in ms |
+| wait     | <code>number</code>   | debounce wait in ms    |
 
-**Example**  
+**Example**
+
 ```js
-return <TextField onChange={debouncedChangeHandler((newName) => console.log(newName))} />
+return <TextField onChange={debouncedChangeHandler((newName) => console.log(newName))} />;
 ```
-

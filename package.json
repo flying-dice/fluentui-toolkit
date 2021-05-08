@@ -16,7 +16,7 @@
     "prebuild": "yarn clean",
     "build": "tsc",
     "postbuild": "node scripts/generateDocs",
-    "ci": "yarn install && yarn prettier && cross-env CI=true yarn build",
+    "ci": "yarn install && cross-env CI=true yarn build",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "deploy-storybook": "gh-pages -d storybook-static"
