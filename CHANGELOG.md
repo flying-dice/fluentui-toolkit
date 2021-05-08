@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.14](https://github.com/flying-dice/fluentui-toolkit/compare/v0.1.13...v0.1.14) (2021-05-08)
+
+
+### Bug Fixes
+
+* **docs:** run prettier ([33910f7](https://github.com/flying-dice/fluentui-toolkit/commit/33910f74e96ce2f16d5b3b509c234575db10adb9))
+
 ### [0.1.13](https://github.com/flying-dice/fluentui-toolkit/compare/v0.1.12...v0.1.13) (2021-05-08)
 
 
